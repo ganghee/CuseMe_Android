@@ -17,18 +17,6 @@
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />
 
-        <CheckedTextView
-            android:id="@+id/ctvHelperCheck"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="120dp"
-            android:background="@drawable/checked_text_check"
-            card_view:layout_constraintStart_toStartOf="@id/imgHelperCard"
-            card_view:layout_constraintTop_toTopOf="@id/imgHelperCard"
-
-            />
-
         <TextView
             android:id="@+id/tvHelperCard"
             android:layout_width="match_parent"
