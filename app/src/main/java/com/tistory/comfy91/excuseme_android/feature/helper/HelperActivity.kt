@@ -205,10 +205,6 @@ class HelperActivity : AppCompatActivity() {
         if(bottom_flag){
             cstHelperBottom.isVisible=true
             btnHelperAddCard.isVisible=true
-//            cstHelperBottom.setOnClickListener {
-//                btnHelperNewCard.isVisible=true
-//                btnHelperDownCard.isVisible=true
-//            }
         }else{
             cstHelperBottom.isVisible=false
             btnHelperAddCard.isVisible=false

@@ -31,18 +31,25 @@ import kotlinx.android.synthetic.main.activity_helper.*
 import kotlinx.android.synthetic.main.activity_helper_sort.*
 import kotlinx.android.synthetic.main.fragment_helper.*
 import kotlinx.android.synthetic.main.fragment_select_sort.*
+import kotlinx.android.synthetic.main.sy_item_card.*
 import java.io.IOException
 
 class HelperFragment() : Fragment() {
     private lateinit var helperAdapter: RvHelperAdapter
     private lateinit var dummyData: ArrayList<DataHelperCard>
     private var selected_card_num = 0
-    private val changeTv: (Boolean) -> Unit = {
-        if(it) selected_card_num ++
+    private val changeBottomBar: (Boolean, String) -> Unit = { b: Boolean, s: String ->
+        tvHelper.text = s
+
+        if(b) {
+            selected_card_num ++
+        }
         else selected_card_num --
 
         if (selected_card_num > 0) (activity as HelperActivity).BottomBarChange(false)
         else (activity as HelperActivity).BottomBarChange(true)
+
+
     }
     val onBtnAllClicked: () -> Unit = {
         btnHelperSortDeleteCard.isVisible = checkAnyCardChecked()
@@ -119,51 +126,12 @@ class HelperFragment() : Fragment() {
          // 서버에서 HelperActivity로 받은 데이터를 HelperFragment에서 이용
         dummyData =  (activity as HelperActivity).fromServerData
         (activity as HelperActivity).fromServerData=dummyData
-           /* arrayListOf(
-            DataHelperCard(
-                "https://t18.pimg.jp/055/208/688/1/55208688.jpg",
-                "first card",
-                true,
-                "큐즈밀리 Fragment1"
-            ),
-            DataHelperCard(
-                "https://t18.pimg.jp/055/208/688/1/55208688.jpg",
-                "second card",
-                true,
-                "큐즈밀리 Fragment2"
-            ),
-            DataHelperCard(
-                "https://t18.pimg.jp/055/208/688/1/55208688.jpg",
-                "third card",
-                true,
-                "큐즈밀리 Fragment3"
-            ),
-            DataHelperCard(
-                "https://t18.pimg.jp/055/208/688/1/55208688.jpg",
-                "fourth card",
-                true,
-                "큐즈밀리 Fragment4"
-            ),
-            DataHelperCard(
-                "https://t18.pimg.jp/055/208/688/1/55208688.jpg",
-                "fifth card",
-                true,
-                "큐즈밀리 Fragment5"
-            ),
-            DataHelperCard(
-                "https://t18.pimg.jp/055/208/688/1/55208688.jpg",
-                "sixth card",
-                true,
-                "큐즈밀리 Fragment6"
-            )
-        )*/
-        //endregion
 
         activity?.let{
             helperAdapter =
                 RvHelperAdapter(
                     it.baseContext,
-                    changeTv
+                    changeBottomBar
                 )
             rvHelperCard.adapter= helperAdapter
             rvHelperCard.layoutManager = GridLayoutManager(it.baseContext, 2)
