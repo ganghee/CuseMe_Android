@@ -20,6 +20,7 @@ class HelperViewHolder(itemView: View, private val onClicked: (Boolean, String)-
 
     lateinit var dataVisibilityChange: ()-> Unit
 
+
     fun bind(data: DataHelperCard, listenerFlag: Int){
         Glide.with(itemView).load(data.imageUrl).into(imgCard)
         itemView.setOnClickListener {
