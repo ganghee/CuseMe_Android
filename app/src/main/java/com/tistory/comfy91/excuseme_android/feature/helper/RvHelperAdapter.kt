@@ -13,7 +13,7 @@ class RvHelperAdapter(private val context: Context, private val onBtnClicked: (B
     var data = arrayListOf<DataHelperCard>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HelperViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.sy_item_card, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.disabled_item_card, parent, false)
 
         return HelperViewHolder(
             view,

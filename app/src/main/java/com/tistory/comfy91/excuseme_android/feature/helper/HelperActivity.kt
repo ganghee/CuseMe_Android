@@ -94,7 +94,7 @@ class HelperActivity : AppCompatActivity() {
             }
         }
 
-        // 카드 다운로드뷰로 이동
+        /*// 카드 다운로드뷰로 이동
         if(isOpen){
             btnHelperDownCard.setOnClickListener{
                 //val context = it.context
@@ -108,17 +108,15 @@ class HelperActivity : AppCompatActivity() {
                 val intent = Intent(this, AddCardActivity::class.java)
                 startActivity(intent)
             }
-        }
+        }*/
 
         btnHelperDownCard.setOnClickListener {
             val intent = Intent(this, DownloadCardActivity::class.java)
             startActivity(intent)
         }
         btnHelperNewCard.setOnClickListener {
-            Toast.makeText(applicationContext, "Button NewCard Clicked", Toast.LENGTH_LONG)
-                .show()
-            /*val intent = Intent(this, NewCardActivity::class.java)
-            startActivity(intent)*/
+            val intent = Intent(this, AddCardActivity::class.java)
+            startActivity(intent)
         }
 
         // 홈미리보기 프래그먼트로 전환

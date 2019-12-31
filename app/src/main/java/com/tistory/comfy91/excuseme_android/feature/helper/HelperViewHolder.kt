@@ -15,8 +15,8 @@ import com.tistory.comfy91.excuseme_android.newStartActivity
 import com.tistory.comfy91.excuseme_android.setOnSingleClickListener
 
 class HelperViewHolder(itemView: View, private val onClicked: (Boolean, String)-> Unit): RecyclerView.ViewHolder(itemView){
-    private val imgCard: ImageView = itemView.findViewById(R.id.imgHelperCard)
-    private val tvCard: TextView = itemView.findViewById(R.id.tvHelperCard)
+    private val imgCard: ImageView = itemView.findViewById(R.id.imgCard)
+    private val tvCard: TextView = itemView.findViewById(R.id.tvCardTitle)
 
     lateinit var dataVisibilityChange: ()-> Unit
 
@@ -27,15 +27,6 @@ class HelperViewHolder(itemView: View, private val onClicked: (Boolean, String)-
             it.isSelected = !it.isSelected
             onClicked(it.isSelected, data.desc)
         }
-
-       /* when(listenerFlag){
-            HELPER_SORT_ACTIVITY -> itemView.setOnSingleClickListener{clicked()}
-            SELECT_SORT_FRAGMENT -> {
-                //ctvCheck.setOnSingleClickListener{clicked()}
-                itemView.setOnSingleClickListener{itemView.context.newStartActivity(
-                    DetailCardActivity::class.java)}
-            }
-        }*/
     }
 
     private fun clicked(){

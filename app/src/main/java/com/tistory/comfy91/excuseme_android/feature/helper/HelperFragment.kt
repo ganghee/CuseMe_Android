@@ -3,7 +3,6 @@ package com.tistory.comfy91.excuseme_android.feature.helper
 
 import android.app.AlertDialog
 import android.content.ContentValues.TAG
-import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -19,19 +18,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.tistory.comfy91.excuseme_android.DetailCardActivity
 import com.tistory.comfy91.excuseme_android.R
 import com.tistory.comfy91.excuseme_android.data.DataHelperCard
-import com.tistory.comfy91.excuseme_android.feature.addcard.AddCardActivity
-import com.tistory.comfy91.excuseme_android.feature.addcard.AudioTimer
 import com.tistory.comfy91.excuseme_android.feature.disabled.DisabledActivity
 import com.tistory.comfy91.excuseme_android.feature.helper_sort.HelperSortActivity
-import com.tistory.comfy91.excuseme_android.feature.helper_sort.HelperSortCardViewHolder
-import com.tistory.comfy91.excuseme_android.feature.helper_sort.RvHelperSortAdapter
 import com.tistory.comfy91.excuseme_android.logDebug
 import kotlinx.android.synthetic.main.activity_add_card.*
-import kotlinx.android.synthetic.main.activity_helper.*
 import kotlinx.android.synthetic.main.activity_helper_sort.*
 import kotlinx.android.synthetic.main.fragment_helper.*
-import kotlinx.android.synthetic.main.fragment_select_sort.*
-import kotlinx.android.synthetic.main.sy_item_card.*
 import java.io.IOException
 
 class HelperFragment() : Fragment() {
@@ -154,10 +146,23 @@ class HelperFragment() : Fragment() {
 
 
 
+    // 안보임 처리
+    private fun invisibleHelperCard() {
+        val it: MutableIterator<DataHelperCard> = dummyData.iterator()
+        while(it.hasNext()){
+            if(it.next().visibility){
+                it.remove()
+            }
+        }
+        helperAdapter.notifyDataSetChanged()
+    }
+
+    // 삭제
     private fun deleteHelperCard() {
         val it: MutableIterator<DataHelperCard> = dummyData.iterator()
         while(it.hasNext()){
             if(it.next().visibility){
+                // 이거 대신 아예 삭제
                 it.remove()
             }
         }
