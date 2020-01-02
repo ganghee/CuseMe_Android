@@ -2,7 +2,6 @@
     <item android:state_selected="true"
         android:drawable="@drawable/btn_solid_pink">
     </item>
-
     <item android:state_selected="false"
         android:drawable="@drawable/btn_solid_palepink">
     </item>

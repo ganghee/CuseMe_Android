@@ -1,7 +1,10 @@
 package com.tistory.comfy91.excuseme_android.data.repository
 
 import com.tistory.comfy91.excuseme_android.api.Service
-import com.tistory.comfy91.excuseme_android.data.*
+import com.tistory.comfy91.excuseme_android.data.CardBean
+import com.tistory.comfy91.excuseme_android.data.ResCardDetail
+import com.tistory.comfy91.excuseme_android.data.ResCards
+import com.tistory.comfy91.excuseme_android.data.ResDownCard
 import com.tistory.comfy91.excuseme_android.data.server.BodyDeleteCard
 import com.tistory.comfy91.excuseme_android.data.server.BodyGetDisabledCard
 import okhttp3.MultipartBody
@@ -37,6 +40,7 @@ interface CardDataRepository {
         image: MultipartBody.Part,
         record: MultipartBody.Part
     ): Call<ResCards>
+
 
     fun deleteCard(token: String, bodyDeleteCard: BodyDeleteCard): Call<ResCards>
 

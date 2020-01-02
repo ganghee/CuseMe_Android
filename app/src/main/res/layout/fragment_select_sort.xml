@@ -11,7 +11,7 @@
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="176dp"
-        android:background="@drawable/bg_select_sort_top"
+        android:background="@drawable/bg_searchview_stroke"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -74,7 +74,7 @@
         android:background="@drawable/bg_btn_pink"
         android:gravity="center"
         android:text="@string/btn_select_sort_name_confirm"
-        android:textColor="@color/white"
+        android:textColor="@color/white_three"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/svSelectSortSearch"
